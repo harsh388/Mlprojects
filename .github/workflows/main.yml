@@ -1,9 +1,9 @@
-name: Decompress Pickle File
+name: Decompress Pickle Files
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # allow manual trigger
+  workflow_dispatch:
 
 jobs:
   decompress:
@@ -18,10 +18,13 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install scikit-learn
-      run: pip install scikit-learn
-
-    - name: Decompress Pickle File
+    - name: Install dependencies
       run: |
-        python unzip.py
-        ls
+        pip install -r requirements.txt || true
+        pip install scikit-learn  # Needed for deserializing model
+
+    - name: Run decompress script
+      run: python unzip.py
+
+    - name: List files after decompression
+      run: ls -lh
