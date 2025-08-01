@@ -18,8 +18,8 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt || true  # if needed
+    - name: Install scikit-learn
+      run: pip install scikit-learn
 
     - name: Decompress Pickle File
       run: |
