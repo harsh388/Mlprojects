@@ -21,7 +21,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt || true
-        pip install scikit-learn  # Needed for deserializing model
 
     - name: Run decompress script
       run: python unzip.py
