@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: docker buildx build --push -t sghs/your-image-name:latest .
+          tags: sghs/crop_yield:latest
